@@ -19,6 +19,24 @@ import java.util.Set;
 
 public class MainActivity extends AppCompatActivity {
 
+    String mQuestions[] ={"Which of the following are object oriented languages?",
+            "In programming, a series of logically ordered steps that lead to a required result is called?",
+            "Which is a typical language for programming inside Web pages?",
+            "Which of the following converts source code into machine code at each runtime?",
+            "Which of the following commonly happens to variables (in most languages)?"};
+
+    String mChoices [][] = {
+            {"Java","Cobol","C++"},
+            {"a compiler","a data structure","an algorithm"},
+            {"JavaScript","HTML","XML"},
+            {"linker","compiler","interpreter"},
+            {"declaration","assignment","derivation"}
+    };
+
+    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration"};
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
