@@ -163,7 +163,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateQuestionNum(int point)
     {
-        mTotalQuestionView.setText(""+mTotalQuestion+"/5`");
+        mTotalQuestionView.setText(""+mTotalQuestion+"/5");
     }
     public void updateQuestion()
     {
