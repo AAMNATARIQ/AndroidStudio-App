@@ -92,7 +92,10 @@ public class MainActivity extends AppCompatActivity {
                         updateQuestion();
                     }
                     else{
-                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+                        mScore = mScore+1;
+                        updateScore(mScore);
+                        updateQuestion();
+                        Toast.makeText(MainActivity.this, "done",Toast.LENGTH_SHORT).show();
 
                     }
                     //mShowAns.setBackgroundDrawable(Color.GREEN);
@@ -102,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
+                    updateQuestion();
                     //mShowAns.setBackground(Color.RED);
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
@@ -119,6 +123,9 @@ public class MainActivity extends AppCompatActivity {
                         updateQuestion();
                     }
                     else{
+                        mScore = mScore+1;
+                        updateScore(mScore);
+                        updateQuestion();
                         Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
 
                     }
@@ -129,6 +136,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
+                    updateQuestion();
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
@@ -147,6 +155,7 @@ public class MainActivity extends AppCompatActivity {
                     else{
                         mScore = mScore+1;
                         updateScore(mScore);
+                        updateQuestion();
                         Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
                     }
 
@@ -156,6 +165,7 @@ public class MainActivity extends AppCompatActivity {
                 {
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
+                    updateQuestion();
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
