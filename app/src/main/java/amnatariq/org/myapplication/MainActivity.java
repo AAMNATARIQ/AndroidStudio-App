@@ -36,12 +36,14 @@ public class MainActivity extends AppCompatActivity {
     String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration"};
 
     TextView mScoreView;
+    TextView mIncorrectView;
     TextView mTotalQuestionView;
     TextView mQuestionView;
     Button mBtnChoice1, mBtnChoice2, mBtnChoice3, mShowAns;
 
     String mAnswer;
     int mScore = 0;
+    int mIncorrect = 0;
     int mQuestionNumber = 0;
 
     int mTotalQuestion = 0;
@@ -67,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         mScoreView = (TextView)findViewById(R.id.score);
+        mIncorrectView = (TextView)findViewById(R.id.incorrect);
+
         mTotalQuestionView = (TextView)findViewById(R.id.totalquestion);
         mQuestionView = (TextView)findViewById(R.id.question);
 
@@ -74,7 +78,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice2 = (Button)findViewById(R.id.choice2);
         mBtnChoice3 = (Button)findViewById(R.id.choice3);
 
-        mShowAns = (Button)findViewById(R.id.showAns);
+        //mShowAns = (Button)findViewById(R.id.showAns);
 
         updateQuestion();
 
@@ -96,6 +100,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    mIncorrect = mIncorrect+1;
+                    updateIncorrectScore(mIncorrect);
                     //mShowAns.setBackground(Color.RED);
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
@@ -121,6 +127,8 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    mIncorrect = mIncorrect+1;
+                    updateIncorrectScore(mIncorrect);
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
@@ -146,19 +154,22 @@ public class MainActivity extends AppCompatActivity {
                 }
                 else
                 {
+                    mIncorrect = mIncorrect+1;
+                    updateIncorrectScore(mIncorrect);
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
-
-
-
 
     }
 
     public void updateScore(int point)
     {
         mScoreView.setText(""+mScore);
+    }
+    public void updateIncorrectScore(int point)
+    {
+        mIncorrectView.setText(""+mIncorrect);
     }
 
     public void updateQuestionNum(int point)
