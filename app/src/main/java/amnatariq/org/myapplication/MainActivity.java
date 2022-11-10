@@ -74,6 +74,34 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice2 = (Button)findViewById(R.id.choice2);
         mBtnChoice3 = (Button)findViewById(R.id.choice3);
 
+        mShowAns = (Button)findViewById(R.id.showAns);
+
+        updateQuestion();
+
+        mBtnChoice1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(mBtnChoice1.getText() == mAnswer){
+                    if(mTotalQuestion!=5) {
+                        mScore = mScore+1;
+                        updateScore(mScore);
+                        updateQuestion();
+                    }
+                    else{
+                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+
+                    }
+                    //mShowAns.setBackgroundDrawable(Color.GREEN);
+                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    //mShowAns.setBackground(Color.RED);
+                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+
 
 
 
