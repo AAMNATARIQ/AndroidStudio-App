@@ -85,29 +85,43 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mBtnChoice1.getText() == mAnswer){
-                    if(mTotalQuestion!=5) {
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        updateQuestion();
-                    }
-                    else{
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        updateQuestion();
-                        Toast.makeText(MainActivity.this, "done",Toast.LENGTH_SHORT).show();
+                if(mTotalQuestion<=5) {
+                    if (mBtnChoice1.getText() == mAnswer) {
 
+//                    if(mTotalQuestion!=5) {
+//                        mScore = mScore+1;
+//                        updateScore(mScore);
+//                        updateQuestion();
+//                    }
+//                    else{
+//                        mScore = mScore+1;
+//                        updateScore(mScore);
+//                        updateQuestion();
+//                        Toast.makeText(MainActivity.this, "done",Toast.LENGTH_SHORT).show();
+//
+//                    }
+                        //mShowAns.setBackgroundDrawable(Color.GREEN);
+                        mScore = mScore + 1;
+                        updateScore(mScore);
+                        if(mTotalQuestion==5)
+                        {
+                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            updateQuestion();
+                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        mIncorrect = mIncorrect + 1;
+                        updateIncorrectScore(mIncorrect);
+                        updateQuestion();
+                        //mShowAns.setBackground(Color.RED);
+                        Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                     }
-                    //mShowAns.setBackgroundDrawable(Color.GREEN);
-                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    mIncorrect = mIncorrect+1;
-                    updateIncorrectScore(mIncorrect);
-                    updateQuestion();
-                    //mShowAns.setBackground(Color.RED);
-                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -115,29 +129,42 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mBtnChoice2.getText() == mAnswer){
-                    if(mTotalQuestion!=5) {
-
-                        mScore = mScore+1;
+                if(mTotalQuestion<=5) {
+                    if (mBtnChoice2.getText() == mAnswer) {
+//                    if(mTotalQuestion!=5) {
+//
+//                        mScore = mScore+1;
+//                        updateScore(mScore);
+//                        updateQuestion();
+//                    }
+//                    else{
+//                        mScore = mScore+1;
+//                        updateScore(mScore);
+//                        updateQuestion();
+//                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+//
+//                    }
+                        mScore = mScore + 1;
                         updateScore(mScore);
+                        if(mTotalQuestion==5)
+                        {
+                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            updateQuestion();
+                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        }
+                    } else {
+                        mIncorrect = mIncorrect + 1;
+                        updateIncorrectScore(mIncorrect);
                         updateQuestion();
+                        Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
                     }
-                    else{
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        updateQuestion();
-                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
-
-                    }
-
-                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    mIncorrect = mIncorrect+1;
-                    updateIncorrectScore(mIncorrect);
-                    updateQuestion();
-                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
@@ -145,28 +172,42 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mBtnChoice3.getText() == mAnswer){
+                if(mTotalQuestion<=5) {
+                    if (mBtnChoice3.getText() == mAnswer) {
 
-                    if(mTotalQuestion!=5) {
-                        mScore = mScore+1;
+//                        if(mTotalQuestion!=5) {
+//                            mScore = mScore+1;
+//                            updateScore(mScore);
+//                            updateQuestion();
+//                        }
+//                        else{
+//                            mScore = mScore+1;
+//                            updateScore(mScore);
+//                            updateQuestion();
+//                            Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+//                        }
+                        mScore = mScore + 1;
                         updateScore(mScore);
-                        updateQuestion();
-                    }
-                    else{
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        updateQuestion();
-                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
-                    }
+                        if(mTotalQuestion==5)
+                        {
+                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        }
+                        else {
+                            updateQuestion();
+                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
+                        }
 
-                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
+                    } else {
+                        mIncorrect = mIncorrect + 1;
+                        updateIncorrectScore(mIncorrect);
+                        updateQuestion();
+                        Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                    }
                 }
                 else
                 {
-                    mIncorrect = mIncorrect+1;
-                    updateIncorrectScore(mIncorrect);
-                    updateQuestion();
-                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
+
                 }
             }
         });
