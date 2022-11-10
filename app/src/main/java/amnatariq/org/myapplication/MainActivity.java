@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void updateScore(int point)
+    {
+        mScoreView.setText(""+mScore);
+    }
+
     public void updateQuestionNum(int point)
     {
         mTotalQuestionView.setText(""+mTotalQuestion+"/5`");
