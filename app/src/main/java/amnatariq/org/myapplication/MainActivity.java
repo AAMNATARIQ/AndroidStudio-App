@@ -126,6 +126,30 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        mBtnChoice3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view){
+                if(mBtnChoice3.getText() == mAnswer){
+
+                    if(mTotalQuestion!=5) {
+                        mScore = mScore+1;
+                        updateScore(mScore);
+                        updateQuestion();
+                    }
+                    else{
+                        mScore = mScore+1;
+                        updateScore(mScore);
+                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+                    }
+
+                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
 
 
