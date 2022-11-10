@@ -35,12 +35,22 @@ public class MainActivity extends AppCompatActivity {
 
     String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration"};
 
-
+    TextView mScoreView;
+    TextView mTotalQuestionView;
+    TextView mQuestionView;
+    Button mBtnChoice1, mBtnChoice2, mBtnChoice3, mShowAns;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        mScoreView = (TextView)findViewById(R.id.score);
+        mTotalQuestionView = (TextView)findViewById(R.id.totalquestion);
+        mQuestionView = (TextView)findViewById(R.id.question);
+
+        mBtnChoice1 = (Button)findViewById(R.id.choice1);
+        mBtnChoice2 = (Button)findViewById(R.id.choice2);
+        mBtnChoice3 = (Button)findViewById(R.id.choice3);
     }
 }
