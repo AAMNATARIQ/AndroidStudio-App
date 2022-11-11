@@ -160,7 +160,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("Incorrect");
 
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
-                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -179,11 +179,11 @@ public class MainActivity extends AppCompatActivity {
                         mIncorrect = mIncorrect+1;
                         updateIncorrectScore(mIncorrect);
                         updateQuestion();
-                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
                     }
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
-                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -192,7 +192,7 @@ public class MainActivity extends AppCompatActivity {
                     updateQuestion();
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
-                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
