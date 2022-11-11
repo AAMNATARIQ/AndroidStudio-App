@@ -82,13 +82,9 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice1 = (Button)findViewById(R.id.choice1);
         mBtnChoice2 = (Button)findViewById(R.id.choice2);
         mBtnChoice3 = (Button)findViewById(R.id.choice3);
-
         //mAnswerBtn = (Button)findViewById(R.id.answerBtn);
-
         textView = (TextView)findViewById(R.id.answer);
-
         //mShowAns = (Button)findViewById(R.id.showAns);
-
         updateQuestion();
 
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
@@ -98,15 +94,14 @@ public class MainActivity extends AppCompatActivity {
                     if(mTotalQuestion<=questionNum+1) {
                         mScore = mScore+1;
                         updateScore(mScore);
+                        textView.setText("Correct");
+                        textView.setBackgroundColor(getResources().getColor(R.color.green));
                         updateQuestion();
                     }
                     else{
-                        mIncorrect = mIncorrect+1;
-                        updateIncorrectScore(mIncorrect);
-                        updateQuestion();
+                        textView.setText("HEY");
+                        textView.setBackgroundColor(getResources().getColor(R.color.green));
                     }
-                    textView.setText("Correct");
-                    textView.setBackgroundColor(getResources().getColor(R.color.green));
 //                    mAnswerBtn.setText("Correct");
 //                    mAnswerBtn.setBackgroundColor(Color.GREEN);
 //                    mAnswerBtn.setTextColor(Color.BLACK);
@@ -115,11 +110,9 @@ public class MainActivity extends AppCompatActivity {
                 {
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
-                    updateQuestion();
-                    //mShowAns.setBackground(Color.RED);
                     textView.setText("Incorrect");
-
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateQuestion();
                 }
             }
         });
@@ -130,28 +123,26 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 if(mBtnChoice2.getText() == mAnswer){
                     if(mTotalQuestion<=questionNum+1) {
-
                         mScore = mScore+1;
                         updateScore(mScore);
+                        textView.setText("Correct");
+                        textView.setBackgroundColor(getResources().getColor(R.color.green));
                         updateQuestion();
                     }
                     else{
-                        mIncorrect = mIncorrect+1;
-                        updateIncorrectScore(mIncorrect);
-                        updateQuestion();
+                        textView.setText("HEY");
+                        textView.setBackgroundColor(getResources().getColor(R.color.green));
                     }
-                    textView.setText("Correct");
 
-                    textView.setBackgroundColor(getResources().getColor(R.color.green));
                 }
                 else
                 {
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
-                    updateQuestion();
-                    textView.setText("Incorrect");
-
+                    textView.setText("Inorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateQuestion();
+
                 }
             }
         });
@@ -164,23 +155,22 @@ public class MainActivity extends AppCompatActivity {
                     if(mTotalQuestion<=questionNum+1) {
                         mScore = mScore+1;
                         updateScore(mScore);
+                        textView.setText("Correct");
+                        textView.setBackgroundColor(getResources().getColor(R.color.green));
                         updateQuestion();
                     }
                     else{
-                        mIncorrect = mIncorrect+1;
-                        updateIncorrectScore(mIncorrect);
-                        updateQuestion();
+                        textView.setText("HEY");
+                        textView.setBackgroundColor(getResources().getColor(R.color.green));
                     }
-                    textView.setText("Correct");
-                    textView.setBackgroundColor(getResources().getColor(R.color.green));
                 }
                 else
                 {
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
-                    updateQuestion();
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
+                    updateQuestion();
                 }
             }
         });
