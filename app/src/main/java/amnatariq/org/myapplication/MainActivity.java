@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     TextView mQuestionView;
     Button mBtnChoice1, mBtnChoice2, mBtnChoice3, mShowAns;
 
+    int questionNum=5;
+
     String mAnswer;
     int mScore = 0;
     int mIncorrect = 0;
@@ -85,86 +87,60 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mTotalQuestion<=5) {
-                    if (mBtnChoice1.getText() == mAnswer) {
-
-//                    if(mTotalQuestion!=5) {
-//                        mScore = mScore+1;
-//                        updateScore(mScore);
-//                        updateQuestion();
-//                    }
-//                    else{
-//                        mScore = mScore+1;
-//                        updateScore(mScore);
-//                        updateQuestion();
-//                        Toast.makeText(MainActivity.this, "done",Toast.LENGTH_SHORT).show();
-//
-//                    }
-                        //mShowAns.setBackgroundDrawable(Color.GREEN);
-                        mScore = mScore + 1;
+                if(mBtnChoice1.getText() == mAnswer){
+                    if(mTotalQuestion!=questionNum) {
+                        mScore = mScore+1;
                         updateScore(mScore);
-                        if(mTotalQuestion==5)
-                        {
-                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            updateQuestion();
-                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        mIncorrect = mIncorrect + 1;
+                        updateQuestion();
+                    }
+                    else{
+                        mIncorrect = mIncorrect+1;
                         updateIncorrectScore(mIncorrect);
                         updateQuestion();
-                        //mShowAns.setBackground(Color.RED);
-                        Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+
                     }
+                    //mShowAns.setBackgroundDrawable(Color.GREEN);
+                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
+                    mIncorrect = mIncorrect+1;
+                    updateIncorrectScore(mIncorrect);
+                    updateQuestion();
+                    //mShowAns.setBackground(Color.RED);
+                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
 
+
         mBtnChoice2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mTotalQuestion<=5) {
-                    if (mBtnChoice2.getText() == mAnswer) {
-//                    if(mTotalQuestion!=5) {
-//
-//                        mScore = mScore+1;
-//                        updateScore(mScore);
-//                        updateQuestion();
-//                    }
-//                    else{
-//                        mScore = mScore+1;
-//                        updateScore(mScore);
-//                        updateQuestion();
-//                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
-//
-//                    }
-                        mScore = mScore + 1;
+                if(mBtnChoice2.getText() == mAnswer){
+                    if(mTotalQuestion!=questionNum) {
+
+                        mScore = mScore+1;
                         updateScore(mScore);
-                        if(mTotalQuestion==5)
-                        {
-                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            updateQuestion();
-                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                        }
-                    } else {
-                        mIncorrect = mIncorrect + 1;
+                        updateQuestion();
+                    }
+                    else{
+                        mIncorrect = mIncorrect+1;
                         updateIncorrectScore(mIncorrect);
                         updateQuestion();
-                        Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+
                     }
+
+                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
-
+                    mIncorrect = mIncorrect+1;
+                    updateIncorrectScore(mIncorrect);
+                    updateQuestion();
+                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -172,42 +148,28 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
-                if(mTotalQuestion<=5) {
-                    if (mBtnChoice3.getText() == mAnswer) {
+                if(mBtnChoice3.getText() == mAnswer){
 
-//                        if(mTotalQuestion!=5) {
-//                            mScore = mScore+1;
-//                            updateScore(mScore);
-//                            updateQuestion();
-//                        }
-//                        else{
-//                            mScore = mScore+1;
-//                            updateScore(mScore);
-//                            updateQuestion();
-//                            Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
-//                        }
-                        mScore = mScore + 1;
+                    if(mTotalQuestion!=questionNum) {
+                        mScore = mScore+1;
                         updateScore(mScore);
-                        if(mTotalQuestion==5)
-                        {
-                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                        }
-                        else {
-                            updateQuestion();
-                            Toast.makeText(MainActivity.this, "correct", Toast.LENGTH_SHORT).show();
-                        }
-
-                    } else {
-                        mIncorrect = mIncorrect + 1;
+                        updateQuestion();
+                    }
+                    else{
+                        mIncorrect = mIncorrect+1;
                         updateIncorrectScore(mIncorrect);
                         updateQuestion();
-                        Toast.makeText(MainActivity.this, "wrong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
                     }
+
+                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
-                    Toast.makeText(MainActivity.this, "done", Toast.LENGTH_SHORT).show();
-
+                    mIncorrect = mIncorrect+1;
+                    updateIncorrectScore(mIncorrect);
+                    updateQuestion();
+                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -247,11 +209,11 @@ public class MainActivity extends AppCompatActivity {
 
     public String getQuestionRand(){
         Random r = new Random();
-        temp = r.nextInt(5);
+        temp = r.nextInt(questionNum);
 
         while(l.contains(temp))
         {
-            temp = r.nextInt(5);
+            temp = r.nextInt(questionNum);
         }
         l.add(counting,temp);
         counting=counting+1;
