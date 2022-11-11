@@ -105,6 +105,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     //mShowAns.setBackgroundDrawable(Color.GREEN);
                     textView.setText("Correct");
+                    textView.setBackgroundColor(getResources().getColor(R.color.green));
                     Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
@@ -114,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
                     updateQuestion();
                     //mShowAns.setBackground(Color.RED);
                     textView.setText("Incorrect");
+
+                    textView.setBackgroundColor(getResources().getColor(R.color.red));
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
@@ -138,6 +141,8 @@ public class MainActivity extends AppCompatActivity {
 
                     }
                     textView.setText("Correct");
+
+                    textView.setBackgroundColor(getResources().getColor(R.color.green));
                     Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
@@ -146,6 +151,8 @@ public class MainActivity extends AppCompatActivity {
                     updateIncorrectScore(mIncorrect);
                     updateQuestion();
                     textView.setText("Incorrect");
+
+                    textView.setBackgroundColor(getResources().getColor(R.color.red));
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
@@ -165,10 +172,10 @@ public class MainActivity extends AppCompatActivity {
                         mIncorrect = mIncorrect+1;
                         updateIncorrectScore(mIncorrect);
                         updateQuestion();
-                        textView.setText("Correct");
                         Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
                     }
-
+                    textView.setText("Correct");
+                    textView.setBackgroundColor(getResources().getColor(R.color.green));
                     Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
@@ -177,6 +184,7 @@ public class MainActivity extends AppCompatActivity {
                     updateIncorrectScore(mIncorrect);
                     updateQuestion();
                     textView.setText("Incorrect");
+                    textView.setBackgroundColor(getResources().getColor(R.color.red));
                     Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
