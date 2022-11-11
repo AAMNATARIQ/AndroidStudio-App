@@ -41,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
     TextView mQuestionView;
     TextView textView;
     Button mBtnChoice1, mBtnChoice2, mBtnChoice3, mShowAns;
+    Button mAnswerBtn;
+
 
     int questionNum=5;
 
@@ -81,6 +83,8 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice2 = (Button)findViewById(R.id.choice2);
         mBtnChoice3 = (Button)findViewById(R.id.choice3);
 
+        mAnswerBtn = (Button)findViewById(R.id.answerBtn);
+
         textView = (TextView)findViewById(R.id.answer);
 
         //mShowAns = (Button)findViewById(R.id.showAns);
@@ -106,7 +110,10 @@ public class MainActivity extends AppCompatActivity {
                     //mShowAns.setBackgroundDrawable(Color.GREEN);
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
-                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
+//                    mAnswerBtn.setText("Correct");
+//                    mAnswerBtn.setBackgroundColor(Color.GREEN);
+//                    mAnswerBtn.setTextColor(Color.BLACK);
+                    //Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
@@ -117,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
                     textView.setText("Incorrect");
 
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
-                    Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "wrong",Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -137,13 +144,13 @@ public class MainActivity extends AppCompatActivity {
                         mIncorrect = mIncorrect+1;
                         updateIncorrectScore(mIncorrect);
                         updateQuestion();
-                        Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
+                        //Toast.makeText(MainActivity.this, "incorrect",Toast.LENGTH_SHORT).show();
 
                     }
                     textView.setText("Correct");
 
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
-                    Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(MainActivity.this, "correct",Toast.LENGTH_SHORT).show();
                 }
                 else
                 {
