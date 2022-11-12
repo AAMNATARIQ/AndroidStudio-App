@@ -52,6 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     String mAnswer;
     String ans;
+    String cAns;
     int mScore = 0;
     int mIncorrect = 0;
     int mQuestionNumber = 0;
@@ -66,9 +67,11 @@ public class MainActivity extends AppCompatActivity {
 
     int n1,n2,n3,n4,n5;
 
+    int num=0;
+
     int[] array;
     ArrayList<Integer> list = new ArrayList<Integer>(6);
-    ArrayList<String> q1 = new ArrayList<>();
+     List<String> q1 = new ArrayList<>();
     ArrayList<String> q2 = new ArrayList<>();
     ArrayList<String> q3 = new ArrayList<>();
     ArrayList<String> q4 = new ArrayList<>();
@@ -79,6 +82,8 @@ public class MainActivity extends AppCompatActivity {
     List<Integer> l = new ArrayList<>();
     int count=0;
     int counting=0;
+
+    String resultArr[];
 
 
     @Override
@@ -110,8 +115,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 if(mBtnChoice1.getText() == mAnswer){
                     choice = "1";
+                    cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
+                    ans="Correct";
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
@@ -126,6 +133,7 @@ public class MainActivity extends AppCompatActivity {
                     choice ="1";
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
+                    ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum)) {
@@ -135,7 +143,12 @@ public class MainActivity extends AppCompatActivity {
                         updateQuestionView();
                     }
                 }
-                q1.add(choice);
+//                String r = mBtnChoice2.getText();
+//                q1.add(r);
+                //q1.add(ans);
+                //resultArr[num+1]=ans;
+                q1.add(ans);
+                q1.add(cAns);
             }
         });
 
@@ -145,8 +158,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 if(mBtnChoice2.getText() == mAnswer){
                     choice ="2";
+                    cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
+                    ans="Correct";
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
@@ -161,6 +176,7 @@ public class MainActivity extends AppCompatActivity {
                     choice ="2";
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
+                    ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum)) {
@@ -170,7 +186,9 @@ public class MainActivity extends AppCompatActivity {
                         updateQuestionView();
                     }
                 }
-                q1.add(choice);
+                q1.add(ans);
+                q1.add(cAns);
+                //resultArr[num+1]=ans;
             }
         });
 
@@ -179,8 +197,10 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view){
                 if(mBtnChoice3.getText() == mAnswer){
                     choice="3";
+                    cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
+                    ans="Correct";
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
@@ -195,6 +215,7 @@ public class MainActivity extends AppCompatActivity {
                     choice="3";
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
+                    ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum+1)) {
@@ -204,10 +225,12 @@ public class MainActivity extends AppCompatActivity {
                         updateQuestionView();
                     }
                 }
-                q1.add(choice);
+                q1.add(ans);
+                q1.add(cAns);
+                //resultArr[num+1]=ans;
             }
         });
-
+        //q1.add(resultArr);
     }
 
     public void updateScore(int point)
@@ -226,9 +249,19 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateQuestionView()
     {
-        //mQuestionView.setText("Correct Answers: "+ mScore +"\nIncorrectAnswers: "+mIncorrect);
+        /* mQuestionView.setText("Correct Answers: "+ mScore +"\nIncorrectAnswers: "+mIncorrect); */
         mQuestionView.setMaxHeight(900);
-        mQuestionView.setText("Question 1: " + q1.get(1) +"\nYour choice: "+q1.get(2));
+
+//        mQuestionView.setText("Question 1: " + q1.get(2) +"\nCorrect Answer: "+q1.get(1)+
+//                            "\nQuestion 2: " + q1.get(4) +"\nCorrect Answer: "+q1.get(3) +"\nQuestion 3: " + q1.get(6) +"\nCorrect Answer: "+q1.get(5)+
+//                "\nQuestion 4: " + q1.get(8) +"\nCorrect Answer: "+q1.get(7)+
+//                "\nQuestion 5: " + q1.get(10) + "\nCorrect Answer: "+q1.get(9)+
+//                "\nQuestion 6: " + q1.get(12) +"\nCorrect Answer: "+q1.get(11));
+
+
+        mQuestionView.setText("Question 1: " + q1.get(2) +"\nCorrect Answer: "+q1.get(1)+
+                            "\nQuestion 2: " + q1.get(4) +"\nCorrect Answer: "+q1.get(3) +"\nQuestion 3: " + q1.get(6) +"\nCorrect Answer: "+q1.get(5)+
+                "\nQuestion 4: " + q1.get(8) +"\nCorrect Answer: "+q1.get(7));
     
         mBtnChoice1.setVisibility(View.INVISIBLE);
         mBtnChoice2.setVisibility(View.INVISIBLE);
@@ -239,12 +272,14 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateQuestion()
     {
+        num=0;
         mTotalQuestion = mTotalQuestion+1;
         updateQuestionNum(mTotalQuestion);
         String q = getQuestionRand();
         mQuestionView.setText(q);
 
-        q1.add(q);
+        //q1.add(q);
+        //resultArr[num]=q;
 
         mBtnChoice1.setText(getChoices1(temp));
         mBtnChoice2.setText(getChoices2(temp));
