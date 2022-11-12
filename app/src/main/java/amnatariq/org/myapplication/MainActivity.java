@@ -4,6 +4,7 @@ import static java.util.Collections.shuffle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -41,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     TextView mIncorrectView;
     TextView mTotalQuestionView;
     TextView mQuestionView;
+    TextView mResultView;
     TextView textView;
     Button mBtnChoice1, mBtnChoice2, mBtnChoice3, mShowAns;
     Button mAnswerBtn;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
     int questionNum=5;
 
     String mAnswer;
+    String ans;
     int mScore = 0;
     int mIncorrect = 0;
     int mQuestionNumber = 0;
@@ -64,7 +67,15 @@ public class MainActivity extends AppCompatActivity {
     int n1,n2,n3,n4,n5;
 
     int[] array;
-    ArrayList<Integer> list = new ArrayList<Integer>(5);
+    ArrayList<Integer> list = new ArrayList<Integer>(6);
+    ArrayList<String> q1 = new ArrayList<>();
+    ArrayList<String> q2 = new ArrayList<>();
+    ArrayList<String> q3 = new ArrayList<>();
+    ArrayList<String> q4 = new ArrayList<>();
+    ArrayList<String> q5 = new ArrayList<>();
+    ArrayList<String> q6 = new ArrayList<>();
+    String choice;
+
     List<Integer> l = new ArrayList<>();
     int count=0;
     int counting=0;
@@ -87,35 +98,44 @@ public class MainActivity extends AppCompatActivity {
         //mAnswerBtn = (Button)findViewById(R.id.answerBtn);
         textView = (TextView)findViewById(R.id.answer);
         //mShowAns = (Button)findViewById(R.id.showAns);
+
+//        mResultView = (TextView) findViewById(R.id.result);
+//        SharedPreferences settings = getSharedPreferences("QuizApp", Context);
+//        mResultView.setText(mScore+"/6");
+
         updateQuestion();
 
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
                 if(mBtnChoice1.getText() == mAnswer){
-                    if(mTotalQuestion<=(questionNum+1)) {
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        textView.setText("Correct");
-                        textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    choice = "1";
+                    mScore = mScore+1;
+                    updateScore(mScore);
+                    textView.setText("Correct");
+                    textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    if(mTotalQuestion<=(questionNum)) {
                         updateQuestion();
                     }
                     else{
-                        textView.setText("HEY");
-                        textView.setBackgroundColor(getResources().getColor(R.color.green));
+                        updateQuestionView();
                     }
-//                    mAnswerBtn.setText("Correct");
-//                    mAnswerBtn.setBackgroundColor(Color.GREEN);
-//                    mAnswerBtn.setTextColor(Color.BLACK);
                 }
                 else
                 {
+                    choice ="1";
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
-                    updateQuestion();
+                    if(mTotalQuestion<=(questionNum)) {
+                        updateQuestion();
+                    }
+                    else{
+                        updateQuestionView();
+                    }
                 }
+                q1.add(choice);
             }
         });
 
@@ -124,28 +144,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(mBtnChoice2.getText() == mAnswer){
-                    if(mTotalQuestion<=(questionNum+1)) {
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        textView.setText("Correct");
-                        textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    choice ="2";
+                    mScore = mScore+1;
+                    updateScore(mScore);
+                    textView.setText("Correct");
+                    textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    if(mTotalQuestion<=(questionNum)) {
                         updateQuestion();
                     }
                     else{
-                        textView.setText("HEY");
-                        textView.setBackgroundColor(getResources().getColor(R.color.green));
+                        updateQuestionView();
                     }
-
                 }
                 else
                 {
+                    choice ="2";
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
-                    textView.setText("Inorrect");
+                    textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
-                    updateQuestion();
-
+                    if(mTotalQuestion<=(questionNum)) {
+                        updateQuestion();
+                    }
+                    else{
+                        updateQuestionView();
+                    }
                 }
+                q1.add(choice);
             }
         });
 
@@ -153,26 +178,33 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(mBtnChoice3.getText() == mAnswer){
-                    if(mTotalQuestion<=(questionNum+1)) {
-                        mScore = mScore+1;
-                        updateScore(mScore);
-                        textView.setText("Correct");
-                        textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    choice="3";
+                    mScore = mScore+1;
+                    updateScore(mScore);
+                    textView.setText("Correct");
+                    textView.setBackgroundColor(getResources().getColor(R.color.green));
+                    if(mTotalQuestion<=(questionNum)) {
                         updateQuestion();
                     }
                     else{
-                        textView.setText("HEY");
-                        textView.setBackgroundColor(getResources().getColor(R.color.green));
+                        updateQuestionView();
                     }
                 }
                 else
                 {
+                    choice="3";
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
-                    updateQuestion();
+                    if(mTotalQuestion<=(questionNum+1)) {
+                        updateQuestion();
+                    }
+                    else{
+                        updateQuestionView();
+                    }
                 }
+                q1.add(choice);
             }
         });
 
@@ -189,13 +221,30 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateQuestionNum(int point)
     {
-        mTotalQuestionView.setText(""+mTotalQuestion+"/5");
+        mTotalQuestionView.setText(""+mTotalQuestion+"/6");
     }
+
+    public void updateQuestionView()
+    {
+        //mQuestionView.setText("Correct Answers: "+ mScore +"\nIncorrectAnswers: "+mIncorrect);
+        mQuestionView.setMaxHeight(900);
+        mQuestionView.setText("Question 1: " + q1.get(1) +"\nYour choice: "+q1.get(2));
+    
+        mBtnChoice1.setVisibility(View.INVISIBLE);
+        mBtnChoice2.setVisibility(View.INVISIBLE);
+        mBtnChoice3.setVisibility(View.INVISIBLE);
+
+        textView.setText("");
+    }
+
     public void updateQuestion()
     {
         mTotalQuestion = mTotalQuestion+1;
         updateQuestionNum(mTotalQuestion);
-        mQuestionView.setText(getQuestionRand());
+        String q = getQuestionRand();
+        mQuestionView.setText(q);
+
+        q1.add(q);
 
         mBtnChoice1.setText(getChoices1(temp));
         mBtnChoice2.setText(getChoices2(temp));
@@ -206,11 +255,11 @@ public class MainActivity extends AppCompatActivity {
 
     public String getQuestionRand(){
         Random r = new Random();
-        temp = r.nextInt(questionNum);
+        temp = r.nextInt(6);
 
         while(l.contains(temp))
         {
-            temp = r.nextInt(questionNum);
+            temp = r.nextInt(6);
         }
         l.add(counting,temp);
         counting=counting+1;

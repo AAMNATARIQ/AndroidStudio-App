@@ -144,16 +144,16 @@
         android:layout_marginBottom="40dp"
         android:padding="8dp">
 
-<!--        <Button-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:text="human"-->
-<!--            android:background="@color/yellow"-->
-<!--            android:textColor="@color/white"-->
-<!--            android:padding="8dp"-->
-<!--            android:layout_marginBottom="24dp"-->
-<!--            android:enabled="true"-->
-<!--            android:id="@+id/answerBtn"/>-->
+        <!--        <Button-->
+        <!--            android:layout_width="match_parent"-->
+        <!--            android:layout_height="wrap_content"-->
+        <!--            android:text="human"-->
+        <!--            android:background="@color/yellow"-->
+        <!--            android:textColor="@color/white"-->
+        <!--            android:padding="8dp"-->
+        <!--            android:layout_marginBottom="24dp"-->
+        <!--            android:enabled="true"-->
+        <!--            android:id="@+id/answerBtn"/>-->
         <TextView
             android:id="@+id/answer"
             android:layout_width="wrap_content"
@@ -167,14 +167,14 @@
 
     </RelativeLayout>
 
-<!--    <Button-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Answer"-->
-<!--        android:background="@color/teal_200"-->
-<!--        android:textColor="#fff"-->
-<!--        android:padding="8dp"-->
-<!--        android:layout_marginBottom="24dp"-->
-<!--        android:id="@+id/showAns"/>-->
+    <!--    <Button-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:text="Answer"-->
+    <!--        android:background="@color/teal_200"-->
+    <!--        android:textColor="#fff"-->
+    <!--        android:padding="8dp"-->
+    <!--        android:layout_marginBottom="24dp"-->
+    <!--        android:id="@+id/showAns"/>-->
 
 </LinearLayout>
