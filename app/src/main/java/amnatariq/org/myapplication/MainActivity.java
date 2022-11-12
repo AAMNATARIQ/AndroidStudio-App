@@ -149,6 +149,7 @@ public class MainActivity extends AppCompatActivity {
                 //resultArr[num+1]=ans;
                 q1.add(ans);
                 q1.add(cAns);
+                cAns=" ";
             }
         });
 
@@ -188,6 +189,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 q1.add(ans);
                 q1.add(cAns);
+                cAns=" ";
                 //resultArr[num+1]=ans;
             }
         });
@@ -227,6 +229,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 q1.add(ans);
                 q1.add(cAns);
+                cAns=" ";
                 //resultArr[num+1]=ans;
             }
         });
