@@ -23,17 +23,19 @@ public class MainActivity extends AppCompatActivity {
             "In programming, a series of logically ordered steps that lead to a required result is called?",
             "Which is a typical language for programming inside Web pages?",
             "Which of the following converts source code into machine code at each runtime?",
-            "Which of the following commonly happens to variables (in most languages)?"};
+            "Which of the following commonly happens to variables (in most languages)?",
+            "AND, OR and NOT are logical operators. What data type is expected for their operands?"};
 
     String mChoices [][] = {
             {"Java","Cobol","C++"},
             {"a compiler","a data structure","an algorithm"},
             {"JavaScript","HTML","XML"},
             {"linker","compiler","interpreter"},
-            {"declaration","assignment","derivation"}
+            {"declaration","assignment","derivation"},
+            {"integer","boolean","character"}
     };
 
-    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration"};
+    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration","boolean"};
 
     TextView mScoreView;
     TextView mIncorrectView;
@@ -91,7 +93,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(mBtnChoice1.getText() == mAnswer){
-                    if(mTotalQuestion<=questionNum+1) {
+                    if(mTotalQuestion<=(questionNum+1)) {
                         mScore = mScore+1;
                         updateScore(mScore);
                         textView.setText("Correct");
@@ -122,7 +124,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(mBtnChoice2.getText() == mAnswer){
-                    if(mTotalQuestion<=questionNum+1) {
+                    if(mTotalQuestion<=(questionNum+1)) {
                         mScore = mScore+1;
                         updateScore(mScore);
                         textView.setText("Correct");
@@ -151,8 +153,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 if(mBtnChoice3.getText() == mAnswer){
-
-                    if(mTotalQuestion<=questionNum+1) {
+                    if(mTotalQuestion<=(questionNum+1)) {
                         mScore = mScore+1;
                         updateScore(mScore);
                         textView.setText("Correct");
@@ -215,35 +216,6 @@ public class MainActivity extends AppCompatActivity {
         counting=counting+1;
 
         String question = mQuestions[temp];
-        return question;
-    }
-
-    public void addArray(int te,int num)
-    {
-        for(int i=num;i<3;i++)
-        {
-            array[i]=te;
-        }
-    }
-    public boolean checkArray(int[] te, int num)
-    {
-        boolean c=true;
-        for(int i=0;i<te.length;i++)
-        {
-            if(te[i]==num)
-            {
-                c= false;
-            }
-            else
-            {
-                c= true;
-            }
-        }
-        return c;
-    }
-
-    public String getQuestion(int a){
-        String question = mQuestions[a];
         return question;
     }
 
