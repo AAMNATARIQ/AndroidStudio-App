@@ -113,6 +113,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                cAns=mAnswer;
                 if(mBtnChoice1.getText() == mAnswer){
                     choice = "1";
                     cAns=mAnswer;
@@ -157,6 +158,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice2.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                cAns=mAnswer;
                 if(mBtnChoice2.getText() == mAnswer){
                     choice ="2";
                     cAns=mAnswer;
@@ -197,6 +199,7 @@ public class MainActivity extends AppCompatActivity {
         mBtnChoice3.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view){
+                cAns=mAnswer;
                 if(mBtnChoice3.getText() == mAnswer){
                     choice="3";
                     cAns=mAnswer;
