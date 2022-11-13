@@ -92,8 +92,8 @@
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
-        android:layout_height="246dp"
-        android:layout_marginBottom="20dp"
+        android:layout_height="269dp"
+        android:layout_marginBottom="15dp"
         android:padding="6dp"
         android:text="Which thing is alive?"
         android:textColor="@color/black"
@@ -105,39 +105,39 @@
         android:text="bird"
         android:background="@color/yellow"
         android:textColor="@color/white"
-        android:padding="6dp"
+        android:padding="3dp"
         android:layout_marginBottom="20dp"
         android:enabled="true"
         android:id="@+id/choice1"/>
 
     <Button
+        android:id="@+id/choice2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="animal"
-        android:background="@color/yellow"
-        android:textColor="@color/white"
-        android:padding="6dp"
         android:layout_marginBottom="20dp"
+        android:background="@color/yellow"
         android:enabled="true"
-        android:id="@+id/choice2"/>
+        android:padding="3dp"
+        android:text="animal"
+        android:textColor="@color/white" />
+
 
     <Button
+        android:id="@+id/choice3"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="human"
-        android:background="@color/yellow"
-        android:textColor="@color/white"
-        android:padding="6dp"
         android:layout_marginBottom="20dp"
+        android:background="@color/yellow"
         android:enabled="true"
-        android:id="@+id/choice3"/>
-
+        android:padding="3dp"
+        android:text="human"
+        android:textColor="@color/white" />
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="20dp"
-        android:padding="6dp">
+        android:padding="3dp">
 
         <!--        <Button-->
         <!--            android:layout_width="match_parent"-->
