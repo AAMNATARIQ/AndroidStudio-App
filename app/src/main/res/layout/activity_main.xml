@@ -25,7 +25,7 @@
             android:layout_alignParentLeft="true"
             android:text="Correct"
             android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/score"
@@ -34,7 +34,7 @@
             android:layout_alignParentRight="true"
             android:text="0"
             android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
     </RelativeLayout>
 
     <RelativeLayout
@@ -50,7 +50,7 @@
             android:layout_alignParentLeft="true"
             android:text="Incorrect"
             android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/incorrect"
@@ -59,7 +59,7 @@
             android:layout_alignParentRight="true"
             android:text="0"
             android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 
@@ -76,7 +76,7 @@
             android:layout_alignParentLeft="true"
             android:text="Total Questions"
             android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
         <TextView
             android:id="@+id/totalquestion"
@@ -85,7 +85,7 @@
             android:layout_alignParentRight="true"
             android:text="0"
             android:textSize="15sp"
-            android:textColor="@color/white"/>
+            android:textColor="@color/black"/>
 
     </RelativeLayout>
 
@@ -96,7 +96,7 @@
         android:layout_marginBottom="20dp"
         android:padding="6dp"
         android:text="Which thing is alive?"
-        android:textColor="@color/white"
+        android:textColor="@color/black"
         android:textSize="20sp" />
 
     <Button
