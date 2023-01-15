@@ -2,14 +2,13 @@ package amnatariq.org.myapplication;
 
 public class Question {
 
-    private String question;g
+    private String question;
     private String option1;
     private String option2;
     private String option3;
     private String answer;
 
     public Question(){
-
     }
 
     public Question(String question, String option1, String option2, String option3, String answer) {
