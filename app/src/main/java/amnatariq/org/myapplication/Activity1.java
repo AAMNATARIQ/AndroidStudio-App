@@ -110,6 +110,7 @@ public class Activity1 extends AppCompatActivity {
 
         //startQuiz();
 
+
         showNextQuestion();
 
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
@@ -410,6 +411,7 @@ public class Activity1 extends AppCompatActivity {
 
     public void updateQuestion()
     {
+
 //        if(!q2.isEmpty())
 //        {
 //            QuizDbHelper dbh = new QuizDbHelper(this);
@@ -424,6 +426,10 @@ public class Activity1 extends AppCompatActivity {
 //            QuizDbHelper dbh = new QuizDbHelper(this);
 //            dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
 //        }
+
+//        QuizDbHelper dbh = new QuizDbHelper(this);
+//        dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
+
 
         num=0;
         mTotalQuestion = mTotalQuestion+1;

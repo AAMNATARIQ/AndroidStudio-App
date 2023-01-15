@@ -49,14 +49,9 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
-    public void deleteCourse(String courseName) {
-
-        // on below line we are creating
-        // a variable to write our database.
+    public void deleteCourse(String courseName)
+    {
         SQLiteDatabase db = this.getWritableDatabase();
-
-        // on below line we are calling a method to delete our
-        // course and we are comparing it with our course name.
         db.delete(QuestionsTable.TABLE_NAME, "name=?", new String[]{courseName});
         db.close();
     }
@@ -131,7 +126,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 QuestionsTable.COLUMN_OPTION1,
                 QuestionsTable.COLUMN_OPTION2,
                 QuestionsTable.COLUMN_OPTION3,
-                QuestionsTable.COLUMN_ANSWER
+                QuestionsTable.COLUMN_ANSWER,
+                //QuestionsTable.COLUMN_MYANSWER
         };
 
         Cursor c = db.query(QuestionsTable.TABLE_NAME, Projection,
@@ -145,6 +141,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
                 question.setOption2(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
                 question.setOption3(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
                 question.setAnswer(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER)));
+                //question.setAnswer(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_MYANSWER)));
                 qlist.add(question);
             }while(c.moveToNext());
         }
