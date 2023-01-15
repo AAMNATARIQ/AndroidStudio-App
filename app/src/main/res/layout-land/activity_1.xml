@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingLeft="16dp"
+    android:paddingTop="16dp"
+    android:paddingRight="16dp"
+    android:paddingBottom="16dp"
+    tools:context=".Activity1"
+    android:background="#003151">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="80dp"
+            android:layout_marginRight="12dp"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/score_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Correct"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/score"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="0"
+                android:textColor="#0F9D58"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:layout_marginTop="5dp"
+            android:padding="6dp">
+
+            <TextView
+                android:id="@+id/incorrect_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Incorrect"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/incorrect"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="0"
+                android:textColor="#ed3520"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:padding="6dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="25dp"
+            >
+
+            <TextView
+                android:id="@+id/totalquestion_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="Total Questions"
+                android:textColor="@color/white"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/totalquestion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="0"
+                android:textColor="#eae92b"
+                android:textSize="15sp" />
+
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="290dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="60dp"
+            >
+            <TextView
+                android:id="@+id/question"
+                android:layout_width="388dp"
+                android:layout_height="119dp"
+                android:padding="6dp"
+                android:text="Which thing is alive?"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                tools:layout_editor_absoluteX="18dp"
+                tools:layout_editor_absoluteY="35dp" />
+
+            <!--        <RelativeLayout-->
+            <!--            android:id="@+id/relativeLayout"-->
+            <!--            android:layout_width="407dp"-->
+            <!--            android:layout_height="70dp"-->
+            <!--            android:padding="3dp"-->
+            <!--            tools:layout_editor_absoluteX="3dp"-->
+            <!--            tools:layout_editor_absoluteY="191dp">-->
+            <TextView
+                android:id="@+id/answer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:padding="5dp"
+                android:text=" "
+                android:textAlignment="center"
+                android:layout_gravity="center"
+                android:textColor="@color/white"
+                android:textSize="20sp" />
+            <!--        </RelativeLayout>-->
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="288dp"
+            android:orientation="vertical"
+            android:layout_marginTop="10dp"
+            android:layout_marginLeft="80dp">
+
+            <Button
+                android:id="@+id/choice1"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bg"
+                android:enabled="true"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:padding="3dp"
+                android:text="bird"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="420dp"
+                tools:layout_editor_absoluteY="81dp" />
+
+            <Button
+                android:id="@+id/choice2"
+                android:layout_width="155dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/btn_bg"
+                android:enabled="true"
+                android:padding="3dp"
+                android:text="animal"
+                android:layout_marginBottom="5dp"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="409dp"
+                tools:layout_editor_absoluteY="19dp" />
+
+            <Button
+                android:id="@+id/choice3"
+                android:layout_width="155dp"
+                android:layout_height="49dp"
+                android:background="@drawable/btn_bg"
+                android:enabled="true"
+                android:padding="3dp"
+                android:text="human"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="410dp"
+                tools:layout_editor_absoluteY="158dp" />
+
+            <Button
+                android:id="@+id/resultBtn"
+                android:layout_width="155dp"
+                android:layout_height="46dp"
+                android:background="@drawable/btn_bg"
+                android:enabled="true"
+                android:padding="3dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Show Results"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="410dp"
+                tools:layout_editor_absoluteY="238dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>
