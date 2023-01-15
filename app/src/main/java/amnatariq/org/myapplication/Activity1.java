@@ -98,6 +98,12 @@ public class Activity1 extends AppCompatActivity {
     private Question crrQuestions;
     private boolean answerss;
 
+    private void fetchDb()
+    {
+        QuizDbHelper dbHelper = new QuizDbHelper(this);
+        qList = dbHelper.getAllQuestions();
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
