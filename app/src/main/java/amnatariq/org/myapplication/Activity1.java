@@ -92,6 +92,8 @@ public class Activity1 extends AppCompatActivity {
 
     String resultArr[];
 
+    String m1,m2,m3,m4,m5,m6;
+
     //for db helper
     private ArrayList<Question> qList;
     private int qCounter;
@@ -159,7 +161,8 @@ public class Activity1 extends AppCompatActivity {
                 q1.add(ans);
                 cAns=" ";
 
-                q2.add(ans);
+                //q2.add(ans);
+                m6=ans;
             }
         });
 
@@ -212,7 +215,8 @@ public class Activity1 extends AppCompatActivity {
                 q1.add(ans);
                 cAns=" ";
 
-                q2.add(ans);
+                m6=ans;
+                //q2.add(ans);
                 //resultArr[num+1]=ans;
             }
         });
@@ -265,7 +269,8 @@ public class Activity1 extends AppCompatActivity {
                 q1.add(ans);
                 cAns=" ";
 
-                q2.add(ans);
+                m6=ans;
+                //q2.add(ans);
                 //resultArr[num+1]=ans;
             }
         });
@@ -403,13 +408,19 @@ public class Activity1 extends AppCompatActivity {
 
     public void updateQuestion()
     {
-        if(!q2.isEmpty())
+//        if(!q2.isEmpty())
+//        {
+//            QuizDbHelper dbh = new QuizDbHelper(this);
+//            dbh.fillQuestionTable(q2.get(0),q2.get(1),q2.get(2),q2.get(3),q2.get(4),q2.get(5));
+//
+//            q2.clear();
+//            //updateQuestion();
+//        }
+
+        if(m1.isEmpty() && m2.isEmpty() && m3.isEmpty() &&m4.isEmpty() && m5.isEmpty())
         {
             QuizDbHelper dbh = new QuizDbHelper(this);
-            dbh.fillQuestionTable(q2.get(0),q2.get(1),q2.get(2),q2.get(3),q2.get(4),q2.get(5));
-
-            q2.clear();
-            //updateQuestion();
+            dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
         }
         num=0;
         mTotalQuestion = mTotalQuestion+1;
@@ -418,7 +429,7 @@ public class Activity1 extends AppCompatActivity {
         mQuestionView.setText(q);
 
         q1.add(q);
-g
+
         //resultArr[num]=q;
         mBtnChoice1.setText(getChoices1(temp));
         mBtnChoice2.setText(getChoices2(temp));
@@ -426,11 +437,18 @@ g
         mAnswer = getCorrectAnswer(temp);
         mQuestionNumber++;
 
-        q2.add(q);
-        q2.add(getChoices1(temp));
-        q2.add(getChoices2(temp));
-        q2.add(getChoices3(temp));
-        q2.add(mAnswer);
+//        q2.add(q);
+//        q2.add(getChoices1(temp));
+//        q2.add(getChoices2(temp));
+//        q2.add(getChoices3(temp));
+//        q2.add(mAnswer);
+
+        m1=q;
+        m2=getChoices1(temp);
+        m3=getChoices2(temp);
+        m4=getChoices3(temp);
+        m5=mAnswer;
+
     }
 
     public String getQuestionRand(){

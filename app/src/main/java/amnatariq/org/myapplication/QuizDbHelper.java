@@ -40,7 +40,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         QuestionsTable.COLUMN_MYANSWER + " TEXT" + ")";
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
-        //fillQuestionsTable();
+        fillQuestionsTable();
     }
 
     @Override
@@ -78,45 +78,44 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         Question q = new Question(q1, o1, o2, o3, a, ma);
         addQuestion(q);
     }
-    private void fillQuestionsTable(String q1,String o1,String o2, String o3, String a, String ma)
+    private void fillQuestionsTable()
     {
-        Question q = new Question(q1,o1,o2,o3,a,ma);
-        addQuestion(q);
 
-//        Question q1 = new Question("Which of the following are object oriented languages?",
-//                "Java","Cobol","C++",
-//                "C++","");
-//        addQuestion(q1);
-//        Question q2 = new Question(
-//                "In programming, a series of logically ordered steps that lead to a required result is called?",
-//                "a compiler","a data structure","an algorithm",
-//                "an algorithm",""
-//        );
-//        addQuestion(q2);
-//        Question q3 = new Question(
-//                "Which is a typical language for programming inside Web pages?",
-//                "JavaScript","HTML", "XML",
-//                "JavaScript",""
-//        );
-//        addQuestion(q3);
-//        Question q4 = new Question(
-//                "Which of the following converts source code into machine code at each runtime?",
-//                "linker","compiler","interpreter",
-//                "interpreter",""
-//                );
-//        addQuestion(q4);
-//        Question q5 = new Question(
-//                "Which of the following commonly happens to variables (in most languages)?",
-//                "declaration","assignment","derivation",
-//                "declaration",""
-//                );
-//        addQuestion(q5);
-//        Question q6 = new Question(
-//                "AND, OR and NOT are logical operators. What data type is expected for their operands?",
-//                "integer","boolean","character",
-//                "boolean",""
-//        );
-//        addQuestion(q6);
+
+        Question q1 = new Question("Which of the following are object oriented languages?",
+                "Java","Cobol","C++",
+                "C++","");
+        addQuestion(q1);
+        Question q2 = new Question(
+                "In programming, a series of logically ordered steps that lead to a required result is called?",
+                "a compiler","a data structure","an algorithm",
+                "an algorithm",""
+        );
+        addQuestion(q2);
+        Question q3 = new Question(
+                "Which is a typical language for programming inside Web pages?",
+                "JavaScript","HTML", "XML",
+                "JavaScript",""
+        );
+        addQuestion(q3);
+        Question q4 = new Question(
+                "Which of the following converts source code into machine code at each runtime?",
+                "linker","compiler","interpreter",
+                "interpreter",""
+                );
+        addQuestion(q4);
+        Question q5 = new Question(
+                "Which of the following commonly happens to variables (in most languages)?",
+                "declaration","assignment","derivation",
+                "declaration",""
+                );
+        addQuestion(q5);
+        Question q6 = new Question(
+                "AND, OR and NOT are logical operators. What data type is expected for their operands?",
+                "integer","boolean","character",
+                "boolean",""
+        );
+        addQuestion(q6);
 
         //adding all the questions here
     }
