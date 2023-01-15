@@ -23,23 +23,23 @@ import java.util.Set;
 
 public class Activity1 extends AppCompatActivity {
 
-//    String mQuestions[] ={"Which of the following are object oriented languages?",
-//            "In programming, a series of logically ordered steps that lead to a required result is called?",
-//            "Which is a typical language for programming inside Web pages?",
-//            "Which of the following converts source code into machine code at each runtime?",
-//            "Which of the following commonly happens to variables (in most languages)?",
-//            "AND, OR and NOT are logical operators. What data type is expected for their operands?"};
-//
-//    String mChoices [][] = {
-//            {"Java","Cobol","C++"},
-//            {"a compiler","a data structure","an algorithm"},
-//            {"JavaScript","HTML","XML"},
-//            {"linker","compiler","interpreter"},
-//            {"declaration","assignment","derivation"},
-//            {"integer","boolean","character"}
-//    };
-//
-//    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration","boolean"};
+    String mQuestions[] ={"Which of the following are object oriented languages?",
+            "In programming, a series of logically ordered steps that lead to a required result is called?",
+            "Which is a typical language for programming inside Web pages?",
+            "Which of the following converts source code into machine code at each runtime?",
+            "Which of the following commonly happens to variables (in most languages)?",
+            "AND, OR and NOT are logical operators. What data type is expected for their operands?"};
+
+    String mChoices [][] = {
+            {"Java","Cobol","C++"},
+            {"a compiler","a data structure","an algorithm"},
+            {"JavaScript","HTML","XML"},
+            {"linker","compiler","interpreter"},
+            {"declaration","assignment","derivation"},
+            {"integer","boolean","character"}
+    };
+
+    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration","boolean"};
 
     String myQuestions[]={};
     String myAnswers[] ={};
@@ -102,10 +102,12 @@ public class Activity1 extends AppCompatActivity {
     private void fetchDb()
     {
         QuizDbHelper dbHelper = new QuizDbHelper(this);
-        qList = dbHelper.getAllQuestions();
-        qTotalCount = qList.size();
-        Collections.shuffle(qList);
+        //qList = dbHelper.getAllQuestions();
+        //qTotalCount = qList.size();
+        //Collections.shuffle(qList);
+
         //startQuiz();
+
         showNextQuestion();
 
         mBtnChoice1.setOnClickListener(new View.OnClickListener(){
@@ -113,9 +115,11 @@ public class Activity1 extends AppCompatActivity {
             public void onClick(View view){
                 cAns=mAnswer;
 
-                if(currQuestion.getOption1().equals(mAnswer)){
+                //if(currQuestion.getOption1().equals(mAnswer))
+                if(mBtnChoice1.getText()==mAnswer)
+                {
                     choice = "1";
-                    currQuestion.setMyanswer("correct");
+                    //currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -123,35 +127,39 @@ public class Activity1 extends AppCompatActivity {
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
-                        //updateQuestion();
-                        showNextQuestion();
+                        updateQuestion();
+                        //showNextQuestion();
                     }
                     else{
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
+                        resFunction();
                     }
                 }
                 else
                 {
                     choice ="1";
-                    currQuestion.setMyanswer("incorrect");
+                    //currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum)) {
-                        //updateQuestion();
-                        showNextQuestion();
+                        updateQuestion();
+                        //showNextQuestion();
                     }
                     else{
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
+                        resFunction();
                     }
                 }
                 q1.add(cAns);
                 q1.add(ans);
                 cAns=" ";
+
+                q2.add(ans);
             }
         });
 
@@ -160,9 +168,11 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                if(currQuestion.getOption2().equals(mAnswer)){
+                //if(currQuestion.getOption2().equals(mAnswer))
+                if(mBtnChoice2.getText()==mAnswer)
+                {
                     choice ="2";
-                    currQuestion.setMyanswer("correct");
+                    //currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -170,35 +180,39 @@ public class Activity1 extends AppCompatActivity {
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
-                        //updateQuestion();
-                        showNextQuestion();
+                        updateQuestion();
+                        //showNextQuestion();
                     }
                     else{
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
+                        resFunction();
                     }
                 }
                 else
                 {
                     choice ="2";
-                    currQuestion.setMyanswer("incorrect");
+                    //currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum)) {
-                        //updateQuestion();
-                        showNextQuestion();
+                        updateQuestion();
+                        //showNextQuestion();
                     }
                     else{
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
+                        resFunction();
                     }
                 }
                 q1.add(cAns);
                 q1.add(ans);
                 cAns=" ";
+
+                q2.add(ans);
                 //resultArr[num+1]=ans;
             }
         });
@@ -207,9 +221,11 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                if(currQuestion.getOption3().equals(currQuestion.getAnswer())){
+                //if(currQuestion.getOption3().equals(currQuestion.getAnswer())){
+                if(mBtnChoice3.getText()==mAnswer)
+                {
                     choice="3";
-                    currQuestion.setMyanswer("correct");
+                    //currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -217,35 +233,39 @@ public class Activity1 extends AppCompatActivity {
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
-                        //updateQuestion();
-                        showNextQuestion();
+                        updateQuestion();
+                        //showNextQuestion();
                     }
                     else{
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
+                        resFunction();
                     }
                 }
                 else
                 {
                     choice="3";
-                    currQuestion.setMyanswer("incorrect");
+                    //currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum+1)) {
-                        //updateQuestion();
-                        showNextQuestion();
+                        updateQuestion();
+                        //showNextQuestion();
                     }
                     else{
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
+                        resFunction();
                     }
                 }
                 q1.add(cAns);
                 q1.add(ans);
                 cAns=" ";
+
+                q2.add(ans);
                 //resultArr[num+1]=ans;
             }
         });
@@ -267,6 +287,12 @@ public class Activity1 extends AppCompatActivity {
 //    private void startQuiz() {
 //        updateQuestion();
 //    }
+
+    private void resFunction(){
+        mBtnChoice1.setEnabled(false)  ;
+        mBtnChoice2.setEnabled(false)  ;
+        mBtnChoice3.setEnabled(false)  ;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -295,28 +321,42 @@ public class Activity1 extends AppCompatActivity {
     }
 
     private void showNextQuestion(){
-        if(qCounter<qTotalCount)
+//        if(qCounter<qTotalCount)
+//        {
+//            updateQuestion();
+//            //currQuestion = qList.get(qCounter);
+//            //mQuestionView.setText(currQuestion.getQuestion());
+//            //mBtnChoice1.setText(currQuestion.getOption1());
+//            //mBtnChoice2.setText(currQuestion.getOption2());
+//            //mBtnChoice3.setText(currQuestion.getOption3());
+//            //qCounter++;
+//            //mTotalQuestionView.setText(""+qCounter+"/"+qTotalCount);
+//            //mAnswer = currQuestion.getAnswer();
+//
+//
+//            //q1.add(currQuestion.getQuestion());
+//
+//            answerss = false;
+//
+//        }
+//        else
+//        {
+//            resBtn.setVisibility(View.VISIBLE);
+//            //updateView();
+//        }
+
+        if(q2.isEmpty())
         {
-            currQuestion = qList.get(qCounter);
-            mQuestionView.setText(currQuestion.getQuestion());
-            mBtnChoice1.setText(currQuestion.getOption1());
-            mBtnChoice2.setText(currQuestion.getOption2());
-            mBtnChoice3.setText(currQuestion.getOption3());
-            qCounter++;
-            mTotalQuestionView.setText(""+qCounter+"/"+qTotalCount);
-            mAnswer = currQuestion.getAnswer();
-            //mIncorrectView.setText(mBtnChoice1.getText());
-
-            q1.add(currQuestion.getQuestion());
-
-            answerss = false;
-
+            updateQuestion();
         }
-        else
-        {
-            resBtn.setVisibility(View.VISIBLE);
-            //updateView();
+        else{
+            QuizDbHelper dbh = new QuizDbHelper(this);
+            dbh.fillQuestionTable(q2.get(0),q2.get(1),q2.get(2),q2.get(3),q2.get(4),q2.get(5));
+
+            q2.clear();
+            updateQuestion();
         }
+
     }
 
     public void updateScore(int point)
@@ -361,86 +401,102 @@ public class Activity1 extends AppCompatActivity {
         //startActivity(intent);
     }
 
-//    public void updateQuestion()
-//    {
-//        num=0;
-//        mTotalQuestion = mTotalQuestion+1;
-//        updateQuestionNum(mTotalQuestion);
-//        String q = getQuestionRand();
-//        mQuestionView.setText(q);
-//        q1.add(q);
-//        //resultArr[num]=q;
-//        mBtnChoice1.setText(getChoices1(temp));
-//        mBtnChoice2.setText(getChoices2(temp));
-//        mBtnChoice3.setText(getChoices3(temp));
-//        mAnswer = getCorrectAnswer(temp);
-//        mQuestionNumber++;
-//    }
+    public void updateQuestion()
+    {
+        if(!q2.isEmpty())
+        {
+            QuizDbHelper dbh = new QuizDbHelper(this);
+            dbh.fillQuestionTable(q2.get(0),q2.get(1),q2.get(2),q2.get(3),q2.get(4),q2.get(5));
 
-//    public String getQuestionRand(){
-//        Random r = new Random();
-//        temp = r.nextInt(6);
-//
-//        while(l.contains(temp))
-//        {
-//            temp = r.nextInt(6);
-//        }
-//        l.add(counting,temp);
-//        counting=counting+1;
-//
-//        String question = mQuestions[temp];
-//        return question;
-//    }
-//
-//    public String getChoices1(int a){
-//        Random r = new Random();
-//        t= r.nextInt(2);
-//        String choice = mChoices[a][t];
-//        return choice;
-//    }
-//    public String getChoices2(int a){
-//        Random r = new Random();
-//        t1 = r.nextInt(2);
-//        if (t1==t)
-//        {
-//            while(t1==t)
-//            {
-//                Random r1 = new Random();
-//                t1 = r1.nextInt(2);
-//            }
-//            String choice = mChoices[a][t1];
-//            return choice;
-//        }
-//        else
-//        {
-//            String choice = mChoices[a][t1];
-//            return choice;
-//        }
-//    }
-//    public String getChoices3(int a){
-//        Random r = new Random();
-//        t2 = r.nextInt(3);
-//        if(t2==t1 || t2==t)
-//        {
-//            while(t2==t1 || t2==t)
-//            {
-//                Random r2 = new Random();
-//                t2 = r2.nextInt(3);
-//            }
-//            String choice = mChoices[a][t2];
-//            return choice;
-//        }
-//        else
-//        {
-//            String choice = mChoices[a][t2];
-//            return choice;
-//        }
-//
-//    }
-//
-//    public String getCorrectAnswer(int a){
-//        String answer = mCorrectAnswers[a];
-//        return answer;
-//    }
+            q2.clear();
+            //updateQuestion();
+        }
+        num=0;
+        mTotalQuestion = mTotalQuestion+1;
+        updateQuestionNum(mTotalQuestion);
+        String q = getQuestionRand();
+        mQuestionView.setText(q);
+
+        q1.add(q);
+g
+        //resultArr[num]=q;
+        mBtnChoice1.setText(getChoices1(temp));
+        mBtnChoice2.setText(getChoices2(temp));
+        mBtnChoice3.setText(getChoices3(temp));
+        mAnswer = getCorrectAnswer(temp);
+        mQuestionNumber++;
+
+        q2.add(q);
+        q2.add(getChoices1(temp));
+        q2.add(getChoices2(temp));
+        q2.add(getChoices3(temp));
+        q2.add(mAnswer);
+    }
+
+    public String getQuestionRand(){
+        Random r = new Random();
+        temp = r.nextInt(6);
+
+        while(l.contains(temp))
+        {
+            temp = r.nextInt(6);
+        }
+        l.add(counting,temp);
+        counting=counting+1;
+
+        String question = mQuestions[temp];
+        return question;
+    }
+
+    public String getChoices1(int a){
+        Random r = new Random();
+        t= r.nextInt(2);
+        String choice = mChoices[a][t];
+        return choice;
+    }
+    public String getChoices2(int a){
+        Random r = new Random();
+        t1 = r.nextInt(2);
+        if (t1==t)
+        {
+            while(t1==t)
+            {
+                Random r1 = new Random();
+                t1 = r1.nextInt(2);
+            }
+            String choice = mChoices[a][t1];
+            return choice;
+        }
+        else
+        {
+            String choice = mChoices[a][t1];
+            return choice;
+        }
+    }
+    public String getChoices3(int a){
+        Random r = new Random();
+        t2 = r.nextInt(3);
+        if(t2==t1 || t2==t)
+        {
+            while(t2==t1 || t2==t)
+            {
+                Random r2 = new Random();
+                t2 = r2.nextInt(3);
+            }
+            String choice = mChoices[a][t2];
+            return choice;
+        }
+        else
+        {
+            String choice = mChoices[a][t2];
+            return choice;
+        }
+
+    }
+
+    public String getCorrectAnswer(int a){
+        String answer = mCorrectAnswers[a];
+        return answer;
+    }
 
 }
