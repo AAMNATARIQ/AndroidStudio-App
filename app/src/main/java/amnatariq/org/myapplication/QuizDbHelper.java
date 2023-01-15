@@ -1,5 +1,6 @@
 package amnatariq.org.myapplication;
 
+import android.annotation.SuppressLint;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -68,9 +69,10 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
 
 
+    @SuppressLint("Range")
     public ArrayList<Question> getAllQuestions()
     {
-        List<Question> qlist = new ArrayList<>();
+        ArrayList<Question> qlist = new ArrayList<>();
         db=getReadableDatabase();
 
         String Projection[] ={
@@ -88,11 +90,11 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         if(c.moveToFirst()){
             do{
                 Question question = new Question();
-                question.setQuestion(c.getString(c.getColumnIndex(QuizContract.QuestionsTable.COLUMN_QUESTION)));
-                question.setOption1(c.getString(c.getColumnIndex(QuizContract.QuestionsTable.COLUMN_OPTION1)));
-                question.setOption2(c.getString(c.getColumnIndex(QuizContract.QuestionsTable.COLUMN_OPTION2)));
-                question.setOption3(c.getString(c.getColumnIndex(QuizContract.QuestionsTable.COLUMN_OPTION3)));
-                question.setAnswer(c.getString(c.getColumnIndex(QuizContract.QuestionsTable.COLUMN_ANSWER)));
+                question.setQuestion(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_QUESTION)));
+                question.setOption1(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION1)));
+                question.setOption2(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION2)));
+                question.setOption3(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_OPTION3)));
+                question.setAnswer(c.getString(c.getColumnIndex(QuestionsTable.COLUMN_ANSWER)));
                 qlist.add(question);
             }while(c.moveToNext());
         }

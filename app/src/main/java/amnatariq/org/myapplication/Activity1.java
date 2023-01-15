@@ -91,7 +91,13 @@ public class Activity1 extends AppCompatActivity {
 
     String resultArr[];
 
-    //    private List<Question> qList;
+    //for db helper
+    private ArrayList<Question> qList;
+    private int qCounter;
+    private int qTotalCount;
+    private Question crrQuestions;
+    private boolean answerss;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
