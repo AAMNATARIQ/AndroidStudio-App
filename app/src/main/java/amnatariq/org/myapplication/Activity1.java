@@ -103,7 +103,7 @@ public class Activity1 extends AppCompatActivity {
 
     private void fetchDb()
     {
-        QuizDbHelper dbHelper = new QuizDbHelper(this);
+        //QuizDbHelper dbHelper = new QuizDbHelper(this);
         //qList = dbHelper.getAllQuestions();
         //qTotalCount = qList.size();
         //Collections.shuffle(qList);
@@ -350,17 +350,18 @@ public class Activity1 extends AppCompatActivity {
 //            //updateView();
 //        }
 
-        if(q2.isEmpty())
-        {
-            updateQuestion();
-        }
-        else{
-            QuizDbHelper dbh = new QuizDbHelper(this);
-            dbh.fillQuestionTable(q2.get(0),q2.get(1),q2.get(2),q2.get(3),q2.get(4),q2.get(5));
-
-            q2.clear();
-            updateQuestion();
-        }
+//        if(q2.isEmpty())
+//        {
+//            updateQuestion();
+//        }
+//        else{
+//            QuizDbHelper dbh = new QuizDbHelper(this);
+//            dbh.fillQuestionTable(q2.get(0),q2.get(1),q2.get(2),q2.get(3),q2.get(4),q2.get(5));
+//
+//            q2.clear();
+//            updateQuestion();
+//        }
+        updateQuestion();
 
     }
 
@@ -417,11 +418,12 @@ public class Activity1 extends AppCompatActivity {
 //            //updateQuestion();
 //        }
 
-        if(m1.isEmpty() && m2.isEmpty() && m3.isEmpty() &&m4.isEmpty() && m5.isEmpty())
-        {
-            QuizDbHelper dbh = new QuizDbHelper(this);
-            dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
-        }
+//        if(m1.isEmpty() && m2.isEmpty() && m3.isEmpty() &&m4.isEmpty() && m5.isEmpty())
+//        {
+//            QuizDbHelper dbh = new QuizDbHelper(this);
+//            dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
+//        }
+
         num=0;
         mTotalQuestion = mTotalQuestion+1;
         updateQuestionNum(mTotalQuestion);

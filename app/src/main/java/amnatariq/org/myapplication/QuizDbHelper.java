@@ -40,7 +40,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         QuestionsTable.COLUMN_MYANSWER + " TEXT" + ")";
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
-        fillQuestionsTable();
+        //fillQuestionsTable();
     }
 
     @Override
@@ -80,8 +80,6 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     }
     private void fillQuestionsTable()
     {
-
-
         Question q1 = new Question("Which of the following are object oriented languages?",
                 "Java","Cobol","C++",
                 "C++","");
