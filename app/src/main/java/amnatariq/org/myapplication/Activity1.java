@@ -161,7 +161,7 @@ public class Activity1 extends AppCompatActivity {
                 q1.add(ans);
                 cAns=" ";
 
-                //q2.add(ans);
+                q2.add(ans);
                 m6=ans;
             }
         });
@@ -216,7 +216,7 @@ public class Activity1 extends AppCompatActivity {
                 cAns=" ";
 
                 m6=ans;
-                //q2.add(ans);
+                q2.add(ans);
                 //resultArr[num+1]=ans;
             }
         });
@@ -270,7 +270,7 @@ public class Activity1 extends AppCompatActivity {
                 cAns=" ";
 
                 m6=ans;
-                //q2.add(ans);
+                q2.add(ans);
                 //resultArr[num+1]=ans;
             }
         });
@@ -361,6 +361,7 @@ public class Activity1 extends AppCompatActivity {
 //            q2.clear();
 //            updateQuestion();
 //        }
+
         updateQuestion();
 
     }
@@ -439,12 +440,14 @@ public class Activity1 extends AppCompatActivity {
         mAnswer = getCorrectAnswer(temp);
         mQuestionNumber++;
 
-//        q2.add(q);
-//        q2.add(getChoices1(temp));
-//        q2.add(getChoices2(temp));
-//        q2.add(getChoices3(temp));
-//        q2.add(mAnswer);
+        //checking in arraylist
+        q2.add(q);
+        q2.add(getChoices1(temp));
+        q2.add(getChoices2(temp));
+        q2.add(getChoices3(temp));
+        q2.add(mAnswer);
 
+        //checking in simple string
         m1=q;
         m2=getChoices1(temp);
         m3=getChoices2(temp);
