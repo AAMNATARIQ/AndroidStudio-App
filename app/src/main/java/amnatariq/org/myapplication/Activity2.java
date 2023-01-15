@@ -87,7 +87,7 @@ public class Activity2 extends AppCompatActivity {
 
         quesTwo.setText(array.get(1));
         quesTwoCorrAns.setText(array.get(5));
-        quesTwoVal.setText(array.get(3));
+        quesTwoVal.setText(array.get(6));
 
         quesThree.setText(array.get(4));
         quesThreeCorrAns.setText(array.get(8));
@@ -104,12 +104,6 @@ public class Activity2 extends AppCompatActivity {
         quesSix.setText(array.get(13));
         quesSixCorrAns.setText(array.get(16));
         quesSixVal.setText(array.get(17));
-
-
-
-
-
-
 
 
 
