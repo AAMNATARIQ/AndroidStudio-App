@@ -22,23 +22,23 @@ import java.util.Set;
 
 public class Activity1 extends AppCompatActivity {
 
-    String mQuestions[] ={"Which of the following are object oriented languages?",
-            "In programming, a series of logically ordered steps that lead to a required result is called?",
-            "Which is a typical language for programming inside Web pages?",
-            "Which of the following converts source code into machine code at each runtime?",
-            "Which of the following commonly happens to variables (in most languages)?",
-            "AND, OR and NOT are logical operators. What data type is expected for their operands?"};
-
-    String mChoices [][] = {
-            {"Java","Cobol","C++"},
-            {"a compiler","a data structure","an algorithm"},
-            {"JavaScript","HTML","XML"},
-            {"linker","compiler","interpreter"},
-            {"declaration","assignment","derivation"},
-            {"integer","boolean","character"}
-    };
-
-    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration","boolean"};
+//    String mQuestions[] ={"Which of the following are object oriented languages?",
+//            "In programming, a series of logically ordered steps that lead to a required result is called?",
+//            "Which is a typical language for programming inside Web pages?",
+//            "Which of the following converts source code into machine code at each runtime?",
+//            "Which of the following commonly happens to variables (in most languages)?",
+//            "AND, OR and NOT are logical operators. What data type is expected for their operands?"};
+//
+//    String mChoices [][] = {
+//            {"Java","Cobol","C++"},
+//            {"a compiler","a data structure","an algorithm"},
+//            {"JavaScript","HTML","XML"},
+//            {"linker","compiler","interpreter"},
+//            {"declaration","assignment","derivation"},
+//            {"integer","boolean","character"}
+//    };
+//
+//    String mCorrectAnswers[] = {"C++","an algorithm","JavaScript","interpreter","declaration","boolean"};
 
     String myQuestions[]={};
     String myAnswers[] ={};
@@ -102,6 +102,11 @@ public class Activity1 extends AppCompatActivity {
     {
         QuizDbHelper dbHelper = new QuizDbHelper(this);
         qList = dbHelper.getAllQuestions();
+        //startQuiz();
+    }
+
+    private void startQuiz() {
+        updateQuestion();
     }
 
     @Override
@@ -128,6 +133,8 @@ public class Activity1 extends AppCompatActivity {
 //        QuizDbHelper dbHelper;
 //        dbHelper = new QuizDbHelper(this);
 //        qList = dbHelper.getAllQuestions();
+
+        fetchDb();
 
         updateQuestion();
 

@@ -62,8 +62,38 @@ public class QuizDbHelper extends SQLiteOpenHelper {
     //inserting data in table
     private void fillQuestionsTable()
     {
-        Question q1 = new Question("this is a question?","A","B","C","answer is A");
+        Question q1 = new Question("Which of the following are object oriented languages?","Java","Cobol","C++","C++");
         addQuestion(q1);
+        Question q2 = new Question(
+                "In programming, a series of logically ordered steps that lead to a required result is called?",
+                "a compiler","a data structure","an algorithm",
+                "an algorithm"
+        );
+        addQuestion(q2);
+        Question q3 = new Question(
+                "Which is a typical language for programming inside Web pages?",
+                "JavaScript","HTML", "XML",
+                "JavaScript"
+        );
+        addQuestion(q3);
+        Question q4 = new Question(
+                "Which of the following converts source code into machine code at each runtime?",
+                "linker","compiler","interpreter",
+                "interpreter"
+                );
+        addQuestion(q4);
+        Question q5 = new Question(
+                "Which of the following commonly happens to variables (in most languages)?",
+                "declaration","assignment","derivation",
+                "declaration"
+                );
+        addQuestion(q5);
+        Question q6 = new Question(
+                "AND, OR and NOT are logical operators. What data type is expected for their operands?",
+                "integer","boolean","character",
+                "boolean"
+        );
+        addQuestion(q6);
 
         //adding all the questions here
     }
