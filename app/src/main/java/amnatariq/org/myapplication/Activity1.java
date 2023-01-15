@@ -112,8 +112,10 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                if(mBtnChoice1.getText() == mAnswer){
+
+                if(currQuestion.getOption1().equals(mAnswer)){
                     choice = "1";
+                    currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -132,6 +134,7 @@ public class Activity1 extends AppCompatActivity {
                 else
                 {
                     choice ="1";
+                    currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
@@ -157,8 +160,9 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                if(mBtnChoice2.getText() == mAnswer){
+                if(currQuestion.getOption2().equals(mAnswer)){
                     choice ="2";
+                    currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -177,6 +181,7 @@ public class Activity1 extends AppCompatActivity {
                 else
                 {
                     choice ="2";
+                    currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
@@ -202,8 +207,9 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                if(mBtnChoice3.getText() == mAnswer){
+                if(currQuestion.getOption3().equals(currQuestion.getAnswer())){
                     choice="3";
+                    currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -222,6 +228,7 @@ public class Activity1 extends AppCompatActivity {
                 else
                 {
                     choice="3";
+                    currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
@@ -243,6 +250,10 @@ public class Activity1 extends AppCompatActivity {
             }
         });
         //q1.add(resultArr);
+
+//        q1.add(currQuestion.getQuestion()) ;
+//        q1.add(currQuestion.getAnswer());
+//        q1.add(currQuestion.getMyanswer());
 
         resBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -278,15 +289,9 @@ public class Activity1 extends AppCompatActivity {
 
         resBtn.setVisibility(View.INVISIBLE);
 
-//        QuizDbHelper dbHelper;
-//        dbHelper = new QuizDbHelper(this);
-//        qList = dbHelper.getAllQuestions();
-
         fetchDb();
 
         //updateQuestion();
-
-
     }
 
     private void showNextQuestion(){
@@ -300,11 +305,17 @@ public class Activity1 extends AppCompatActivity {
             qCounter++;
             mTotalQuestionView.setText(""+qCounter+"/"+qTotalCount);
             mAnswer = currQuestion.getAnswer();
+            //mIncorrectView.setText(mBtnChoice1.getText());
+
+            q1.add(currQuestion.getQuestion());
+
             answerss = false;
+
         }
         else
         {
-            updateView();
+            resBtn.setVisibility(View.VISIBLE);
+            //updateView();
         }
     }
 

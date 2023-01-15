@@ -36,7 +36,8 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         QuestionsTable.COLUMN_OPTION1 + " TEXT, " +
         QuestionsTable.COLUMN_OPTION2 + " TEXT, " +
         QuestionsTable.COLUMN_OPTION3 + " TEXT, " +
-        QuestionsTable.COLUMN_ANSWER + " TEXT" + ")";
+        QuestionsTable.COLUMN_ANSWER + " TEXT, " +
+        QuestionsTable.COLUMN_MYANSWER + " TEXT" + ")";
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
         fillQuestionsTable();
@@ -48,6 +49,18 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+    public void deleteCourse(String courseName) {
+
+        // on below line we are creating
+        // a variable to write our database.
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        // on below line we are calling a method to delete our
+        // course and we are comparing it with our course name.
+        db.delete(QuestionsTable.TABLE_NAME, "name=?", new String[]{courseName});
+        db.close();
+    }
+
     private void addQuestion(Question question)
     {
         ContentValues cv = new ContentValues();
@@ -56,42 +69,45 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         cv.put(QuestionsTable.COLUMN_OPTION2,question.getOption2());
         cv.put(QuestionsTable.COLUMN_OPTION3,question.getOption3());
         cv.put(QuestionsTable.COLUMN_ANSWER,question.getAnswer());
+        cv.put(QuestionsTable.COLUMN_MYANSWER,question.getMyanswer());
         db.insert(QuestionsTable.TABLE_NAME,null,cv);
     }
 
     //inserting data in table
     private void fillQuestionsTable()
     {
-        Question q1 = new Question("Which of the following are object oriented languages?","Java","Cobol","C++","C++");
+        Question q1 = new Question("Which of the following are object oriented languages?",
+                "Java","Cobol","C++",
+                "C++","");
         addQuestion(q1);
         Question q2 = new Question(
                 "In programming, a series of logically ordered steps that lead to a required result is called?",
                 "a compiler","a data structure","an algorithm",
-                "an algorithm"
+                "an algorithm",""
         );
         addQuestion(q2);
         Question q3 = new Question(
                 "Which is a typical language for programming inside Web pages?",
                 "JavaScript","HTML", "XML",
-                "JavaScript"
+                "JavaScript",""
         );
         addQuestion(q3);
         Question q4 = new Question(
                 "Which of the following converts source code into machine code at each runtime?",
                 "linker","compiler","interpreter",
-                "interpreter"
+                "interpreter",""
                 );
         addQuestion(q4);
         Question q5 = new Question(
                 "Which of the following commonly happens to variables (in most languages)?",
                 "declaration","assignment","derivation",
-                "declaration"
+                "declaration",""
                 );
         addQuestion(q5);
         Question q6 = new Question(
                 "AND, OR and NOT are logical operators. What data type is expected for their operands?",
                 "integer","boolean","character",
-                "boolean"
+                "boolean",""
         );
         addQuestion(q6);
 

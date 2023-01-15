@@ -105,6 +105,17 @@ public class Activity2 extends AppCompatActivity {
         quesSixCorrAns.setText(array.get(16));
         quesSixVal.setText(array.get(17));
 
+
+
+
+
+
+
+
+
+
+
+
 //        ListView lv =findViewById(R.id.list_val);
 //        ArrayAdapter<String> items = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array);
 //        lv.setAdapter(items);
