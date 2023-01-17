@@ -3,8 +3,12 @@ package amnatariq.org.myapplication;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -26,6 +30,8 @@ public class Activity2 extends AppCompatActivity {
     TextView quesFour, quesFourVal, quesFourCorrAns;
     TextView quesFive, quesFiveVal, quesFiveCorrAns;
     TextView quesSix, quesSixVal, quesSixCorrAns;
+
+    Button commitBtn;
 
 
     ArrayList<String> array;
@@ -64,6 +70,8 @@ public class Activity2 extends AppCompatActivity {
         quesSix = findViewById(R.id.question_num6);
         quesSixVal = findViewById(R.id.ques_val6);
         quesSixCorrAns = findViewById(R.id.ques_val_ans6);
+
+        commitBtn = (Button) findViewById(R.id.commitBtn);
 
 
         String correctAns = getIntent().getStringExtra("keycorrect");
@@ -106,13 +114,23 @@ public class Activity2 extends AppCompatActivity {
         quesSixVal.setText(array.get(17));
 
 
-
-
+        commitBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                updateView();
+            }
+        });
 
 
 //        ListView lv =findViewById(R.id.list_val);
 //        ArrayAdapter<String> items = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,array);
 //        lv.setAdapter(items);
+    }
 
+    public void updateView()
+    {
+        Uri u = Uri.parse("https://github.com/AAMNATARIQ/AndroidStudio-App/commits/master");
+        Intent intent = new Intent(Intent.ACTION_VIEW,u);
+        startActivity(intent);
     }
 }

@@ -40,7 +40,7 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         QuestionsTable.COLUMN_MYANSWER + " TEXT" + ")";
 
         db.execSQL(SQL_CREATE_QUESTIONS_TABLE);
-        //fillQuestionsTable();
+        fillQuestionsTable();
     }
 
     @Override
@@ -113,6 +113,15 @@ public class QuizDbHelper extends SQLiteOpenHelper {
         //adding all the questions here
     }
 
+    public void updateUserAnswer(String ques, String answer)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues v = new ContentValues();
+        v.put(QuestionsTable.COLUMN_MYANSWER,answer);
+        System.out.println(ques);
+        db.update(QuestionsTable.TABLE_NAME,v,QuestionsTable.COLUMN_QUESTION + " = ?" , new String[]{ques.toString()});
+    }
 
     @SuppressLint("Range")
     public ArrayList<Question> getAllQuestions()

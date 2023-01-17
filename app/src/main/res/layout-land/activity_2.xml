@@ -618,6 +618,24 @@
                     android:textSize="15sp" />
             </RelativeLayout>
         </LinearLayout>
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:id="@+id/commitBtn"
+                android:layout_width="155dp"
+                android:layout_height="46dp"
+                android:background="@drawable/btn_bg"
+                android:enabled="true"
+                android:padding="3dp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:text="Show Commits"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="410dp"
+                tools:layout_editor_absoluteY="238dp" />
+        </RelativeLayout>
+
     </LinearLayout>
 
 </ScrollView>

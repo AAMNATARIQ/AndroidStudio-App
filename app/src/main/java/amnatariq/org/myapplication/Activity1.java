@@ -63,7 +63,7 @@ public class Activity1 extends AppCompatActivity {
     int mScore = 0;
     int mIncorrect = 0;
     int mQuestionNumber = 0;
-
+    QuizDbHelper dbh;
     int mTotalQuestion = 0;
 
     int temp;
@@ -103,13 +103,12 @@ public class Activity1 extends AppCompatActivity {
 
     private void fetchDb()
     {
-        //QuizDbHelper dbHelper = new QuizDbHelper(this);
-        //qList = dbHelper.getAllQuestions();
-        //qTotalCount = qList.size();
-        //Collections.shuffle(qList);
+        QuizDbHelper dbHelper = new QuizDbHelper(this);
+        qList = dbHelper.getAllQuestions();
+        qTotalCount = qList.size();
+        Collections.shuffle(qList);
 
         //startQuiz();
-
 
         showNextQuestion();
 
@@ -118,11 +117,11 @@ public class Activity1 extends AppCompatActivity {
             public void onClick(View view){
                 cAns=mAnswer;
 
-                //if(currQuestion.getOption1().equals(mAnswer))
-                if(mBtnChoice1.getText()==mAnswer)
+                if(currQuestion.getOption1().equals(mAnswer))
+                //if(mBtnChoice1.getText()==mAnswer)
                 {
                     choice = "1";
-                    //currQuestion.setMyanswer("correct");
+                    currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -130,10 +129,11 @@ public class Activity1 extends AppCompatActivity {
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
-                        updateQuestion();
-                        //showNextQuestion();
+                        //updateQuestion();
+                        showNextQuestion();
                     }
                     else{
+                        resFunction();
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
                         resFunction();
@@ -142,17 +142,18 @@ public class Activity1 extends AppCompatActivity {
                 else
                 {
                     choice ="1";
-                    //currQuestion.setMyanswer("incorrect");
+                    currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum)) {
-                        updateQuestion();
-                        //showNextQuestion();
+                        //updateQuestion();
+                        showNextQuestion();
                     }
                     else{
+                        resFunction();
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
                         resFunction();
@@ -164,6 +165,10 @@ public class Activity1 extends AppCompatActivity {
 
                 q2.add(ans);
                 m6=ans;
+
+
+                dbHelper.updateUserAnswer(currQuestion.getQuestion(),ans);
+
             }
         });
 
@@ -172,11 +177,11 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                //if(currQuestion.getOption2().equals(mAnswer))
-                if(mBtnChoice2.getText()==mAnswer)
+                if(currQuestion.getOption2().equals(mAnswer))
+                //if(mBtnChoice2.getText()==mAnswer)
                 {
                     choice ="2";
-                    //currQuestion.setMyanswer("correct");
+                    currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -184,10 +189,11 @@ public class Activity1 extends AppCompatActivity {
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
-                        updateQuestion();
-                        //showNextQuestion();
+                        //updateQuestion();
+                        showNextQuestion();
                     }
                     else{
+                        resFunction();
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
                         resFunction();
@@ -196,17 +202,18 @@ public class Activity1 extends AppCompatActivity {
                 else
                 {
                     choice ="2";
-                    //currQuestion.setMyanswer("incorrect");
+                    currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum)) {
-                        updateQuestion();
-                        //showNextQuestion();
+                        //updateQuestion();
+                        showNextQuestion();
                     }
                     else{
+                        resFunction();
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
                         resFunction();
@@ -219,6 +226,8 @@ public class Activity1 extends AppCompatActivity {
                 m6=ans;
                 q2.add(ans);
                 //resultArr[num+1]=ans;
+
+                dbHelper.updateUserAnswer(currQuestion.getQuestion(),ans);
             }
         });
 
@@ -226,11 +235,11 @@ public class Activity1 extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 cAns=mAnswer;
-                //if(currQuestion.getOption3().equals(currQuestion.getAnswer())){
-                if(mBtnChoice3.getText()==mAnswer)
+                if(currQuestion.getOption3().equals(currQuestion.getAnswer()))
+                //if(mBtnChoice3.getText()==mAnswer)
                 {
                     choice="3";
-                    //currQuestion.setMyanswer("correct");
+                    currQuestion.setMyanswer("correct");
                     cAns=mAnswer;
                     mScore = mScore+1;
                     updateScore(mScore);
@@ -238,10 +247,11 @@ public class Activity1 extends AppCompatActivity {
                     textView.setText("Correct");
                     textView.setBackgroundColor(getResources().getColor(R.color.green));
                     if(mTotalQuestion<=(questionNum)) {
-                        updateQuestion();
-                        //showNextQuestion();
+                        //updateQuestion();
+                        showNextQuestion();
                     }
                     else{
+                        resFunction();
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
                         resFunction();
@@ -250,20 +260,21 @@ public class Activity1 extends AppCompatActivity {
                 else
                 {
                     choice="3";
-                    //currQuestion.setMyanswer("incorrect");
+                    currQuestion.setMyanswer("incorrect");
                     mIncorrect = mIncorrect+1;
                     updateIncorrectScore(mIncorrect);
                     ans="Incorrect";
                     textView.setText("Incorrect");
                     textView.setBackgroundColor(getResources().getColor(R.color.red));
                     if(mTotalQuestion<=(questionNum+1)) {
-                        updateQuestion();
-                        //showNextQuestion();
+                        //    updateQuestion();
+                        showNextQuestion();
                     }
                     else{
+                        resFunction();
                         resBtn.setVisibility(View.VISIBLE);
                         //updateQuestionView();
-                        resFunction();
+
                     }
                 }
                 q1.add(cAns);
@@ -273,6 +284,8 @@ public class Activity1 extends AppCompatActivity {
                 m6=ans;
                 q2.add(ans);
                 //resultArr[num+1]=ans;
+
+                dbHelper.updateUserAnswer(currQuestion.getQuestion(),ans);
             }
         });
         //q1.add(resultArr);
@@ -317,6 +330,11 @@ public class Activity1 extends AppCompatActivity {
 
         resBtn = (Button)findViewById(R.id.resultBtn);
 
+//        mBtnChoice1.setBackgroundColor(Color.MAGENTA);
+//        mBtnChoice2.setBackgroundColor(Color.MAGENTA);
+//        mBtnChoice3.setBackgroundColor(Color.MAGENTA);
+//        resBtn.setBackgroundColor(Color.MAGENTA);
+
         textView = (TextView)findViewById(R.id.answer);
 
         resBtn.setVisibility(View.INVISIBLE);
@@ -327,29 +345,29 @@ public class Activity1 extends AppCompatActivity {
     }
 
     private void showNextQuestion(){
-//        if(qCounter<qTotalCount)
-//        {
-//            updateQuestion();
-//            //currQuestion = qList.get(qCounter);
-//            //mQuestionView.setText(currQuestion.getQuestion());
-//            //mBtnChoice1.setText(currQuestion.getOption1());
-//            //mBtnChoice2.setText(currQuestion.getOption2());
-//            //mBtnChoice3.setText(currQuestion.getOption3());
-//            //qCounter++;
-//            //mTotalQuestionView.setText(""+qCounter+"/"+qTotalCount);
-//            //mAnswer = currQuestion.getAnswer();
-//
-//
-//            //q1.add(currQuestion.getQuestion());
-//
-//            answerss = false;
-//
-//        }
-//        else
-//        {
-//            resBtn.setVisibility(View.VISIBLE);
-//            //updateView();
-//        }
+        if(qCounter<qTotalCount)
+        {
+            //updateQuestion();
+            currQuestion = qList.get(qCounter);
+            mQuestionView.setText(currQuestion.getQuestion());
+            mBtnChoice1.setText(currQuestion.getOption1());
+            mBtnChoice2.setText(currQuestion.getOption2());
+            mBtnChoice3.setText(currQuestion.getOption3());
+            qCounter++;
+            mTotalQuestionView.setText(""+qCounter+"/"+qTotalCount);
+            mAnswer = currQuestion.getAnswer();
+
+            q1.add(currQuestion.getQuestion());
+
+            answerss = false;
+
+        }
+        else
+        {
+            resFunction();
+            resBtn.setVisibility(View.VISIBLE);
+            //updateView();
+        }
 
 //        if(q2.isEmpty())
 //        {
@@ -363,7 +381,7 @@ public class Activity1 extends AppCompatActivity {
 //            updateQuestion();
 //        }
 
-        updateQuestion();
+        //updateQuestion();
 
     }
 
@@ -427,8 +445,8 @@ public class Activity1 extends AppCompatActivity {
 //            dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
 //        }
 
-//        QuizDbHelper dbh = new QuizDbHelper(this);
-//        dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
+        dbh = new QuizDbHelper(this);
+        dbh.fillQuestionTable(m1,m2,m3,m4,m5,m6);
 
 
         num=0;
